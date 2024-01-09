@@ -1,5 +1,3 @@
-# 04.2 -> 04.3
-# 20230410 CallBackをdict形式で整理
 # 20230818 各種設定を外出しして整理
 import io
 import json
