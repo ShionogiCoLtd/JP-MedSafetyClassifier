@@ -1,0 +1,51 @@
+# テキストエディターで編集・保存する際には、
+# エンコーディングを"UTF-8"に設定してください。
+
+# Dashの設定
+app_setting:
+  debug_mode: True
+  host: 127.0.0.1   # アプリケーション提供用のホストIP
+  port: 1234        # ポート番号
+  tab_disabled:
+    filter: False
+    threshold: True
+  # デフォルトで選択されるダウンロードファイル形式
+  # ".xlsx", ".csv/UTF-8", ".csv/Shift-JIS"のうち、どれかを選択する
+  download_default_type: ".xlsx" 
+
+# データ読み込み、前処理、出力時の列名定義など
+data:
+  # 問い合わせ内容、もしくは回答内容に対応する列名。
+  # 対応する列名が存在しない場合、モデルには空欄で入力される。
+  sentence1_key: 問合せ：問題詳細
+  sentence2_key: 問合せ：回答詳細
+  # 事例の情報として表示する列名を設定する。
+  # モデルには入力されない。対応する列名が存在しない場合は、空白となる。
+  col_title: 問合せ：タイトル
+  col_id: 問合せID
+  col_date: 問合せ：受付日時
+  col_drugname: 製品：製品詳細名
+  # 判定が入力される列名の設定。入力はbit (0/1)もしくはbool (False/True)。
+  # 既に入力済みの場合にはその結果が各事例に反映されて表示される。
+  col_output_adr: 問合せ：副作用
+  col_output_pregnancy: 問合せ：妊婦・授乳婦服薬
+  col_output_ss: 問合せ：SS
+  # トークンの長さがmax_seq_lengthを超えたときに、
+  # どの部分を省略してモデルに入力するかを指定する。
+  # ・head：文の先頭部分を切り捨てる。
+  # ・tail：文の最後の部分を切り捨てる。
+  # ・body：文の中央部分を切り捨てる。
+  # 通常はモデルのconfig.jsonにあるFine-tuning時の処理と同じものを選択する。
+  truncation_target: body
+
+#   予測モデル関連
+transformers:
+  model_name_or_path: model_release.20230817     # modelディレクトリ内のモデル名を設定
+  output_dir: ./tmp
+  overwrite_cache: False
+  use_fast_tokenizer: False
+  max_seq_length: 512             # モデルの最大入力長
+  per_device_eval_batch_size: 8  # バッチサイズ
+  num_workers_of_preprocess: 1    # データを前処理してモデル入力形式に変換する際に使用するsubprocess数
+  num_workers_of_data_loader: 2   # data_loaderで使用するsubprocess数
+  
