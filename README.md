@@ -6,7 +6,7 @@ JP-MedSafetyClassifier is a BERT-based deep learning model developed for the cla
 ## Main Features
 The JP-MedSafetyClassifier can classify into three main categories:
 1. **Adverse Events**: Positive classification for adverse events caused by the use of a company's pharmaceutical products.
-2. **Pregnant/Nursing Medication**: Cases involving medication use during pregnancy or nursing. Inquiries about prescriptions without confirmation of administration are classified as negative.
+2. **Medications During Pregnancy and Breastfeeding**: Cases involving medication use during pregnancy or nursing. Inquiries about prescriptions without confirmation of administration are classified as negative.
 3. **Special Situation (SS)**: Refers to non-standard medical situations, important for clinical aspects or drug safety, recommended for reporting in regulatory guidelines like ICH, FDA, EMA. Includes overdose, drug abuse/misuse, off-label use, occupational exposure, insufficient effect, and administration errors.
 
 ## Usage
