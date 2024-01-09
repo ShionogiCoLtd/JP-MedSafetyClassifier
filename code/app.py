@@ -1,4 +1,3 @@
-# 20230818 各種設定を外出しして整理
 import io
 import json
 import base64
@@ -274,14 +273,6 @@ navibar = [
             tabs, width='auto',
         ),
 ]
-# progress_bar = dbc.Col(
-#             [
-#                 dcc.Interval(id='progress-interval', disabled=True, n_intervals=0, interval=500),
-#                 dbc.Progress(value=100, color='primary', id="progress-inference",
-#                             style={'height': '10px', 'margin': '0px 0px'},
-#                             animated=False, striped=False)
-#             ]
-# )
 
 s_viz_stacks = []
 for i, key in enumerate(label_name.keys()):
@@ -414,8 +405,6 @@ app.layout = dbc.Container(
     ],
     fluid=True,
 )
-#         dbc.Row(progress_bar, className='bg-dark'),   # progressが取得できるようになったら対応を検討する
-
 
 filtername_display = {
     'p-ADR': '予測「副作用＋」',
@@ -582,7 +571,6 @@ def load_file(csv_file_name, list_of_contents, list_of_names,
                 _, content_string = c.split(',')
                 decoded = base64.b64decode(content_string)
                 enc = detect(decoded)
-                # print(enc)
                 
                 try:
                     df = pd.read_csv(io.StringIO(decoded.decode(enc['encoding'])))
@@ -683,7 +671,6 @@ def extract_data_to_show(raw_data, scores_predicted,
         else:
             idx_in_df_index = 0
 
-        # disp_index: df_index内のindex。df_index配列の各valueではない。
         if triggered_id == 'button_move_to_previous':
             disp_index = idx_in_df_index - 1 if idx_in_df_index != 0 else idx_in_df_index - 1
         elif triggered_id == 'button_move_to_next':
@@ -791,8 +778,6 @@ def extract_data_to_show(raw_data, scores_predicted,
         index_list = create_index_list(data_length=len(raw_data[data_args.col_id]),
                                          filter_info=filter_item_value)
         if len(index_list):
-            # if index not in index_list:
-            #     index = index_list[0]
             output['display_index'] = index
 
     # フィルター設置状態でファイルを読み込んだときの対応
