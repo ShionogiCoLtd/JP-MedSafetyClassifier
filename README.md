@@ -14,41 +14,4 @@ The JP-MedSafetyClassifier can classify into three main categories:
 2. Execute `python ./code/app.py` to launch the Dash web application.
 3. Access the application through a browser at `http://127.0.0.1:1234/`.
 
-Example `config.yml`:
-
-```yaml
-# Set encoding to "UTF-8" when editing and saving with a text editor.
-
-# Dash Settings
-app_setting:
-  debug_mode: True
-  host: 127.0.0.1
-  port: 1234
-  tab_disabled:
-    filter: False
-    threshold: True
-  download_default_type: ".xlsx"
-
-# Data handling, preprocessing, and output column definitions
-data:
-  sentence1_key: ...
-  sentence2_key: ...
-  col_title: ...
-  col_id: ...
-  col_date: ...
-  col_drugname: ...
-  col_output_adr: ...
-  col_output_pregnancy: ...
-  col_output_ss: ...
-  truncation_target: body
-
-# Prediction Model Settings
-transformers:
-  model_name_or_path: model_release.20230817
-  output_dir: ./tmp
-  overwrite_cache: False
-  use_fast_tokenizer: False
-  max_seq_length: 512
-  per_device_eval_batch_size: 8
-  num_workers_of_preprocess: 1
-  num_workers_of_data_loader: 2
+![Screen Shot](./image/screenshot01.png)
