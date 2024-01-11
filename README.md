@@ -1,7 +1,10 @@
 # JP-MedSafetyClassifier
 
 ## Overview
-JP-MedSafetyClassifier is a BERT-based deep learning model developed for the classification of medical safety events in Japanese. It wraps the model in a Dash web application for visualization of output results and assists in file output through user input.
+**JP-MedSafetyClassifier** is a BERT-based deep learning model developed for the classification of medical safety events in Japanese. It wraps the model in a Dash web application for visualization of output results and assists in file output through user input.  
+This product was developed as a joint research project between the Department of Medical Informatics, Osaka University Graduate School of Medicine and the Pharmacovigilance Department and Data Science Department, Drug Development and Regulatory Science Division & DX Promotion Division, Shionogi & Co., Ltd.
+
+
 
 ## Main Features
 The JP-MedSafetyClassifier can classify into three main categories:
@@ -12,6 +15,6 @@ The JP-MedSafetyClassifier can classify into three main categories:
 ## Usage
 1. Modify `config.yml` according to your data column names and the location of the pre-trained model.
 2. Execute `python ./code/app.py` to launch the Dash web application.
-3. Access the application through a browser at `http://127.0.0.1:1234/`.
+3. Access the application through a browser, for example, at `http://127.0.0.1:1234/`.
 
 ![Screen Shot](./image/screenshot01.png)
