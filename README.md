@@ -12,9 +12,13 @@ The JP-MedSafetyClassifier can classify into three main categories:
 2. **Medications During Pregnancy and Breastfeeding**: Cases involving medication use during pregnancy or nursing. Inquiries about prescriptions without confirmation of administration are classified as negative.
 3. **Special Situation (SS)**: Refers to non-standard medical situations, important for clinical aspects or drug safety, recommended for reporting in regulatory guidelines like ICH, FDA, EMA. Includes overdose, drug abuse/misuse, off-label use, occupational exposure, insufficient effect, and administration errors.
 
+
+
 ## Usage
-1. Modify `config.yml` according to your data column names and the location of the pre-trained model.
-2. Execute `python ./code/app.py` to launch the Dash web application.
-3. Access the application through a browser, for example, at `http://127.0.0.1:1234/`.
+1. First, download the model (for example, our published model at https://github.com/ShionogiCoLtd/JP-MedSafetyClassifier/releases/tag/model) and save it in the `model` directory.
+2. Modify `config.yml` according to your data column names and the location of the pre-trained model.
+3. Execute `python ./code/app.py` to launch the Dash web application.
+4. Access the application through a browser, for example, at `http://127.0.0.1:1234/`.
+
 
 ![Screen Shot](./image/screenshot01.png)
