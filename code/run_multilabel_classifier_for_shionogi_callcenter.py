@@ -1,5 +1,3 @@
-# 20230818
-# - 公開のために各種設定を外出し
 import logging
 import sys
 from typing import Tuple
@@ -70,8 +68,6 @@ def ml_text_classifier(
     logger.info(datasets)
     
     # Labels
-    # A useful fast method:
-    # https://huggingface.co/docs/datasets/package_reference/main_classes.html#datasets.Dataset.unique
     label_list = ['問合せ：副作用', 
                   '問合せ：妊婦・授乳婦服薬',
                   '問合せ：SS',
@@ -80,10 +76,6 @@ def ml_text_classifier(
     num_labels = len(label_list)
     
     # Load pretrained model and tokenizer
-    #
-    # In distributed training, the .from_pretrained methods guarantee that only one local process can concurrently
-    # download model & vocab.
-
     config = AutoConfig.from_pretrained(
         model_args.model_name_or_path,
         cache_dir=model_args.cache_dir,
@@ -156,7 +148,8 @@ def ml_text_classifier(
     logger.info(f'Inference Start: {len(predict_dataset)} records in {total_iterations} iterations.')
     for i, batch in enumerate(tqdm(data_loader, desc='Predict Examples')):
         with torch.no_grad():
-            outputs = model(**batch)
+            
+            outputs = model(**{k: v.to(training_args.device) for k, v in batch.items()})
             logits = outputs.logits
             all_results.append(logits.cpu().numpy())
         if progress_function:
@@ -181,8 +174,7 @@ def main():
         validate_csv_after_load,
     )
 
-    # data_path = '/PATH/TO/YOUR/CSV'
-    data_path = '/home/wada/workspace/shionogi_dashboard/release/20230817/data/20210201_問合せ_ダミー_no_inputs.csv'
+    data_path = '/PATH/TO/YOUR/CSV'
     baseDir = Path(__file__).parent.parent    
     with open(baseDir / 'config.yml', 'r', encoding='utf-8') as f:
         yml = yaml.load(f, yaml.FullLoader)
