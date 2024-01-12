@@ -148,7 +148,6 @@ def ml_text_classifier(
     logger.info(f'Inference Start: {len(predict_dataset)} records in {total_iterations} iterations.')
     for i, batch in enumerate(tqdm(data_loader, desc='Predict Examples')):
         with torch.no_grad():
-            
             outputs = model(**{k: v.to(training_args.device) for k, v in batch.items()})
             logits = outputs.logits
             all_results.append(logits.cpu().numpy())
@@ -160,11 +159,11 @@ def ml_text_classifier(
 
     def sigmoid(a):
         return 1 / (1 + np.exp(-a))
-    guids = predict_dataset['guid']
+
     predictions = sigmoid(result)
     df_preds = pd.DataFrame(predictions,
                             columns=[f'pred_{i}' for i in ['ADR', 'pregnancy', 'SS', 'allnegative']])
-    df_preds['guid'] = guids
+    df_preds['guid'] = predict_dataset['guid']
     return df_preds
 
 def main():
