@@ -63,7 +63,7 @@ def create_dataset(
         data_args: DataArguments,
     ) -> Dataset:
     def create_dataset_label(df: pd.DataFrame):
-        # 予測時はダミーの値を入れてエラーを回避させておく
+        # 予測時はダミー値を入れてエラーを回避する
         df[data_args.features_label] = np.zeros((len(df), 4)).tolist()
         df[data_args.col_title].replace(np.nan, '', inplace=True)
         df[data_args.sentence1_key].replace(np.nan, '', inplace=True)
