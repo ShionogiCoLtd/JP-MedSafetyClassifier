@@ -22,3 +22,18 @@ The JP-MedSafetyClassifier can classify into three main categories:
 
 
 ![Screen Shot](./image/screenshot01.png)
+
+
+```
+@InProceedings{Wada2023AdverseEvent,
+  author = {Shoya Wada and Masaharu Okamoto and Kento Sugimoto and Yasushi Matsumura and Katsuki Okada and Shirou Manabe and Shozo Konishi and Haruka Sato and Takuya Hara and Genta Ito and Akio Tsuji and Toshihiro Takeda},
+  title = {Development of an Adverse Event Extraction and Entry Assistance Tool to Support Regulatory Reporting},
+  booktitle = {Proceedings of the 27th Spring Symposium of the Japanese Society for Medical Information},
+  year = {2023},
+  pages = {56--57},
+  address = {Okinawa Convention Center, Ginowan, Okinawa},
+  month = jun,
+  organization = {Japanese Society for Medical Information},
+  note = {Oral presentation at the 27th Spring Symposium of the Japanese Society for Medical Information, June 29 - July 1, 2023, Presentation date: June 30, 2023}
+}
+```
