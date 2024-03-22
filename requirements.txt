@@ -15,7 +15,7 @@ flask==2.2.5
 dash_bootstrap_components
 dash-daq
 chardet==4.0.0
-transformers==4.26.1
+transformers==4.36.0
 accelerate
 optimum==1.8.6
 datasets
